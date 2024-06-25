@@ -1,0 +1,61 @@
+<app-header></app-header>
+<div class="body">
+    <div class="container">
+      <div class="card">
+        <div class="card-header">
+          {{params ? 'Editar': 'Agregar'}} Producto
+        </div>
+        <div class="card-body">
+            <form [formGroup]="form" (ngSubmit)="submit()">
+              <label for="inputName" class="form-label">Nombre:</label>
+              <input
+                type="text"
+                id="inputName"
+                class="form-control mb-10"
+                formControlName="name"
+                required
+              >
+              <div class="error mb-10" *ngIf="form.get('name')?.touched && !form.get('name')?.valid">
+                <div>
+                  El nombre es obligatorio
+                </div>
+              </div>
+              <label for="inputPrice" class="form-label">Precio:</label>
+              <input
+                type="number"
+                id="inputPrice"
+                class="form-control mb-10"
+                formControlName="price"
+                required
+              >
+              <div class="error mb-10" *ngIf="form.get('price')?.touched && !form.get('price')?.valid">
+                <div>
+                  El precio es obligatorio
+                </div>
+              </div>
+              <label for="inputQty" class="form-label">Cantidad:</label>
+              <input
+                type="number"
+                id="inputQty"
+                class="form-control mb-10"
+                formControlName="qty"
+                required
+              >
+              <div class="error mb-10" *ngIf="form.get('qty')?.touched && !form.get('qty')?.valid">
+                <div>
+                  La cantidad es obligatoria
+                </div>
+              </div>
+              <div class="flex-center">
+                <button type="submit" [disabled]="!form.valid" class="signup-btn btn">Agregar</button>
+              </div>
+              <div class="error mb-10" *ngIf="error">
+                <div>
+                  {{error}}
+                </div>
+              </div>
+            </form>
+        </div>
+    </div>
+    </div>
+</div>

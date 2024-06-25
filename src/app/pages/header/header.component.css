@@ -1,0 +1,13 @@
+.navbar{
+    display: flex;
+    justify-content: space-between;
+}
+
+.logo{
+  height: 70px;
+}
+
+.btn{
+  background-color: #EBE8E1;
+  color: #000;
+}
